@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+{% block content %}
+    <style>
+      .background-color{
+          background-color: rgba(255, 255, 255, 0.5);
+      }
+    </style>
+    <div class="container" style="margin-bottom: 10px">
+        <div>
+            <a class="btn btn-success" href="/user/add" target="_blank">
+                <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+                新建用户</a>
+        </div>
+    </div>
+    <div class="container background-color ">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+                用户列表
+            </div>
+
+            <table class="table table-bordered background-color">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>用户名</th>
+                    <th>密码</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for obj in list %}
+                    <tr>
+                        <td>{{ obj.id }}</td>
+                        <td>{{ obj.username }}</td>
+                        <td>{{ obj.password }}</td>
+                        <td>
+                            <a class="btn btn-primary btn-xs" href="/user/{{ obj.id}}/edit/">编辑</a>
+                            <a class="btn btn-danger btn-xs" href="/user/delete/?nid={{ obj.id }}">删除</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

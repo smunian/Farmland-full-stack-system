@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{% block content %}
+    <style>
+    a {
+        color: black;
+    }
+    .background-color{
+          background-color: rgba(255, 255, 255, 0.5);
+      }
+    </style>
+    <div class="container" style="margin-bottom: 10px">
+        <div>
+            <a class="btn btn-success" href="/farmland/farmland_add/" target="_blank">
+                <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+                新增农田</a>
+        </div>
+    </div>
+    <div class="container background-color">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+                农田管理
+            </div>
+
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>地区:</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for obj in list %}
+                    <tr>
+                        <td>{{ obj.name }}</td>
+                        <td><a class="btn btn-danger btn-xs" href="/farmland//farmland_delete/?farmland_name={{ obj.name }}">删除</a></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

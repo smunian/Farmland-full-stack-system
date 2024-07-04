@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <style>
+    .background-color{
+          background-color: rgba(255, 255, 255, 0.5);
+      }
+    </style>
+    <div>
+        <div class="container background-color">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">修改用户</h3>
+                </div>
+                <div class="panel-body">
+                    <form class="form-horizontal" METHOD="post">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label ">用户名字</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" placeholder="名字" name="username"
+                                       value="{{ name.username }}"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label ">用户名字</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" placeholder="名字" name="password"
+                                       value="{{ name.password }}"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2">
+                                <button type="submit" class="btn btn-primary">提 交</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
